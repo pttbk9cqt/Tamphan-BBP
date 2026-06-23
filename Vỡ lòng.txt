@@ -1,0 +1,114 @@
+﻿<h1>Tiêu đề to nhất</h1>
+<h2>@ViewBag.Tiêu_đề</h2>
+<p>Đây là một đoạn văn.</p>    p là paragraph - đoạn văn
+
+<!-- đây là cú pháp cmt của html thuần, có thể bật nhanh bằng Ctrl K + Ctrl C (Code + Comment) và uncmt bằng Ctrl K + Ctrl U (Co
+de + Uncomment) -->
+
+@* phím tắt Ctrl / tạo cmt nhưng dưới dạng Razor (C#), và có thể uncmt bằng cách lặp lại Ctrl / *@
+
+@* <br /> là cú pháp xuống dòng *@
+
+@* Đây là cách tạo liên kết (hyperlink) trong Razor View để chuyển trang*@
+<a href="/Home/Index">Trang chủ </a>
+
+@* FORM and INPUT – CHỖ NHẬP DỮ LIỆU *@
+<form method="post"
+      asp-action="Login">
+    <input name="Username" />
+    <input name="Password" type="password" />
+    <button type="submit">Login</button>
+</form>
+
+@* Tạo bảng *@
+<br />
+<style>
+    table, th, td {
+        border: 1px solid black;
+        border-collapse: collapse;
+    }
+</style>
+<table>
+    <tr>
+        <td>Tên</td>
+        <td>Email</td>
+    </tr>
+    <tr>
+        <td>Phan Thành Tâm</td>
+        <td>pttbk9cqt@gmail.com</td>
+    </tr>
+</table>
+
+@* đây là cách xuống dòng giữ nguyên định dạng: PRE = Preformatted text*@
+<pre>
+Dòng 1
+Dòng 2
+    Thụt đầu dòng
+</pre>
+
+@* gán dữ liệu @{} viết C# và đọc dữ liệu @ in giá trị ra HTML*@
+@*{
+    Tình huống	         Cú pháp
+Gán dữ liệu	       @{ ViewData["Title"] = "..."; }
+Đọc dữ liệu	       @ViewData["Title"]
+Gán + logic	       @{ ... }
+In ra HTML	       @...                            
+} *@
+@* @ dùng để “in kết quả”
+   @{} dùng để “viết C#”  *@
+@* Ghi chú: như vậy khi nào cần khai báo @{ } và khi nào không:
+- Khi cần viết logic C# phức tạp hoặc gán giá trị, ta dùng @{ }. -> không áp dụng @ với controller do Controller.cs đã là C# rồi; còn áp dụng ở view khi cần viết C# do view là HTML + Razor nên mình phải dùng @{ } để phân biệt.
+- Khi chỉ cần in ra giá trị đơn giản, ta dùng @ trực tiếp ở html để báo cho Razor biết đây là C#, hãy chạy và in nó ra html. *@
+
+@* ViewData và Viewbag *@
+@* ViewData là một dictionary để lưu trữ dữ liệu dưới dạng cặp key-value, trong khi ViewBag là một dynamic object cho phép truy cập dữ liệu thông qua thuộc tính. Cả hai đều được sử dụng để truyền dữ liệu từ Controller đến View trong ASP.NET MVC. *@
+@* Dùng ViewData *@
+@{
+    ViewData["Title"] = "Home Page";
+}
+<h2>@ViewData["Title"]</h2>
+@* Dùng Viewbag ở Controller*@
+ViewBag.Title = "Hello MVC - commit đầu tiên!";
+<h2>@ViewBag.Title</h2>
+@* Lưu ý: ta có thể khai báo ở controller và dùng ở view nhưng không bao giờ ngược lại được, lý do thứ tự chạy là controller trước rồi mới đến view, khi view chạy thì controller đã chạy xong rồi và controller không thể lấy dữ liệu từ view được. *@
+
+@* Về Expression (biểu thức) và Statement (câu lệnh)
+Expression (biểu thức): là một đoạn mã trả về một giá trị
+Ví dụ:
+5 + 3          // → 8
+DateTime.Now  // → 01/01/2025...
+user.Name     // → "Tâm"
+
+Statement (câu lệnh): Thứ ra lệnh cho chương trình làm gì đó, Không nhất thiết trả về giá trị để in ra
+Ví dụ:
+int x = 5;          // gán
+if (x > 3) { }      // rẽ nhánh
+for (...) { }       // vòng lặp
+return View();      // trả kết quả
+
+Trong Razor View, ta dùng @ để đánh dấu bắt đầu một Expression hoặc Statement.
+@expression → IN RA HTML
+ví dụ:
+<h2>@ViewBag.Title</h2>
+<p>@DateTime.Now.Year</p>
+<p>@(5 + 3)</p>
+<h2>@(Model.FirstName + " " + Model.LastName)</h2> đây là TH đặc biệt khi ta có nhiều phép tính trong ngoặc, nếu không có ngoặc thì Razor chỉ hiểu đến dấu chấm đầu tiên thôi.
+
+
+@{ statement } → THỰC THI C# (KHÔNG IN gì ra HTML)
+Ví dụ:
+@{
+    ViewBag.Title = "Home Page";
+    int year = DateTime.Now.Year;
+} *@
+
+@* @* Khi bạn tạo cấu trúc thư mục mới vượt ra khỏi mặc định của ASP.NET MVC, bạn cần đảm bảo rằng bạn đã cấu hình đúng trong tệp Startup.cs hoặc Program.cs để ứng dụng của bạn có thể tìm thấy các view trong các thư mục tùy chỉnh đó. Điều này thường bao gồm việc thêm các đường dẫn tìm kiếm view bổ sung vào dịch vụ Razor View Engine.
+Ví dụ khi tạo cây thư mục như sau: \Views\Pages\Home\Index.cshtml
+Ở Homepage.cshtml ta cần sửa view lại như sau để trỏ đúng
+        public IActionResult Homepage()
+        {
+            ViewBag.Title = "Hello MVC - commit đầu tiên!";
+            return View("~/Views/Pages/Home/Index.cshtml");
+        }
+        Ngoài ra, bạn cũng có thể cấu hình trong Startup.cs hoặc Program.cs để thêm đường dẫn tìm kiếm view tùy chỉnh:
+        services.Configure<RazorViewEngineOptions>(options => *@ 

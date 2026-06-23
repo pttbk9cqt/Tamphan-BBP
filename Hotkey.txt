@@ -1,0 +1,70 @@
+﻿↑↓→← được gõ bằng cách nhấn giữ phím Alt và gõ số trên bàn phím số (NumPad) tương đương các key 24,25,26,27
+Ctrl + Shift + W → View in browser (EDGE); giống như copy URL → paste vào Edge → Enter; không giống F5 (build lại + debug), không giống cả Ctrl F5 (build lại không debug, test chạy thật)
+
+
+Alt + Up/Down Arrow → Move selection line up/down 
+Ctrl + D để copy dòng code hiện tại ngay bên dưới
+Ctrl + L để xóa dòng code hiện tại
+
+Di chuyển qua lại nhiều dòng cùng lúc:
+bôi đen đoạn code cần di chuyển
+nhấn Tab nếu muốn sang phải
+nhấn Shift + Tab nếu muốn sang trái
+
+Ctrl + M + O/L để thu gọn/mở rộng tất cả các vùng code (trong Controller được, trong View không được)
+
+
+
+Ctrl + . → Quick Actions / Fix
+F12 → Go to definition
+Shift + F12 → Find references
+Ctrl + R, R → Rename (nhấn Ctrl xong nhấn R 2 lần liên tục)
+Ctrl + K, Ctrl + D → Format document
+Ctrl + T → Go to all (để search)
+
+Ctrl + Shift + F → Find in files
+Ctrl + Shift + H → Replace in files
+
+Ctrl + Shift + U → Change to uppercase
+Ctrl + U → Change to lowercase
+
+Ctrl + Shift + V → Cycle clipboard ring
+Ctrl + Shift + Space → Parameter info
+Ctrl + Shift + . → Navigate to next error or warning
+Ctrl + Shift + , → Navigate to previous error or warning
+Ctrl + K, Ctrl + X → Insert snippet
+Ctrl + Alt + Down Arrow → Duplicate line down
+Ctrl + Alt + Up Arrow → Duplicate line up
+Ctrl + Enter → Insert line below
+Ctrl + Shift + Enter → Insert line above
+Ctrl + Space → Trigger suggestion
+Ctrl + Alt + L → Format selection
+Ctrl + K, Ctrl + S → Show all snippets
+Ctrl + Shift + M → Show problems panel
+Ctrl + Alt + F7 → Find all references of symbol under cursor
+Alt + F12 → Peek definition  (mở cửa sổ nhỏ xem định nghĩa mà không cần rời khỏi vị trí con trỏ hiện tại)
+
+
+
+
+Ctrl + Shift + P → Show command palette
+
+
+Ctrl + ` →  (Chạy terminal Developer Powershell trong VS)
+
+
+
+Ctrl + F4 → Close editor tab
+Ctrl + K, Ctrl + F → Format selection
+
+
+Alt + Z → Không chỉnh được word wrap nữa, chỉ chỉnh được trong VS Code thôi, nếu VS2026 thì phải vào Tools → Options → Text Editor → All Languages → General → Chọn "Word wrap"
+Ctrl + Shift + F5 → Restart (là phím chức năng mặc định sẽ hiện lên khi Debug), nhưng nếu cài UNIKEY thì khi gõ tổ hợp phím trên nó sẽ bật ra bảng điều khiển của Unikey, nên cần tắt Unikey đi mới dùng được phím này trong VS. Nhưng thường thì mình không dùng phím này mà dùng chuột để Restart trực tiếp trên thanh công cụ (button vòng tròn ngược chiều kim đồng hồ).
+
+Đã nhớ
+Ctrl + / để comment/uncomment dòng code hiện tại
+Ctrl + Tab → qua lại giữa các tab gần nhất trong recent
+Ctrl + Shift + Tab → qua lại giữa các tab xa nhất trong recent (tab có thứ tự được chọn cuối cùng)
+Ctrl + G → Go to line
+Ctrl + F → Find
+Ctrl + H → Replace
