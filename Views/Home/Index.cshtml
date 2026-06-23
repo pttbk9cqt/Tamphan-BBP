@@ -1,6 +1,89 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "15-06";   //Tên Tab
 }
+<div>
+    <textarea id="TieuDe"
+              name="TieuDe"
+              rows="2"
+              style="width:100%;">Tờ trình xin chủ trương</textarea>
+</div>
+
+<br />
+
+<div>
+    <label>Số tờ trình:</label>
+    <input id="SoToTrinh" name="SoToTrinh" value="/TTr-SXKD" style="width:130px" />
+    <label style="margin-left:30px;" >Ngày:</label>
+    <input id="NgayToTrinh" name="NgayToTrinh" value="@DateTime.Now.Day" style="width:30px" />
+    <label>Tháng:</label>
+    <input id="ThangToTrinh" name="ThangToTrinh" value="@DateTime.Now.Month" style="width:30px" />
+    <label>Năm:</label>
+    <input id="NamToTrinh" name="NamToTrinh" value="@DateTime.Now.Year" style="width:45px" />
+</div>
+
+<br />
+
+<div>
+    <label style="margin-right:45px;" >Dự án:</label>
+    <input list="TenDuAn" id="DuAn" name="DuAn" onclick="this.select()" style="width:400px" />
+    <datalist id="TenDuAn">
+        <option value="Khu Công nghiệp và Dân cư Becamex - Bình Phước"></option>
+        <option value="Khu Công nghiệp Becamex - Bình Phước"></option>
+        <option value="Khu Tái định cư - Dân cư Ấp 1"></option>
+        <option value="Khu Dân cư Ấp 4"></option>
+        <option value="Khu Dân cư Ấp 4B"></option>
+    </datalist>
+</div>
+
+<br />
+
+<div>
+    <label style="margin-right:13px;">Công trình:</label>
+    <input list="TenCongTrinh" id="CongTrinh" name="CongTrinh" onclick="this.select()" style="width:500px;" />
+    <datalist id="TenCongTrinh">
+        <option value="Khu Công nghiệp và Dân cư Becamex - Bình Phước"></option>
+        <option value="Khu Công nghiệp Becamex - Bình Phước"></option>
+        <option value="Khu Công nghiệp - Khu B"></option>
+        <option value="Khu Công nghiệp phía Bắc khu A (phía Bắc suối Cái)"></option>
+        <option value="Khu Công nghiệp phía Nam khu A (phía Nam suối Cái)"></option>
+        <option value="Khu Tái định cư - Dân cư Ấp 1"></option>
+        <option value="Khu Dân cư Ấp 4"></option>
+        <option value="Khu Dân cư Ấp 4B"></option>
+    </datalist>
+</div>
+
+<br />
+
+<div>
+    <label style="margin-right:15px;">Hạng mục:</label>
+    <input id="HangMuc" name="HangMuc" onclick="this.select()" style="width:1200px;" />
+</div>
+
+<br />
+
+<div>
+    <label style="margin-right:25px;" >Địa điểm:</label>
+    <input id="DiaDiem" name="DiaDiem" value="Phường Chơn Thành, Thành phố Đồng Nai" style="width:400px" />
+</div>
+
+<br />
+
+<div>
+    <label style="margin-right:25px;">NCC:</label>
+    <input id="NhaCungCap" name="NhaCungCap" value="BBPJSC" style="width:400px" />
+</div>
+
+<br />
+
+<div>
+    <label for="Chucvu">Chức vụ:</label>
+    <select>
+        <option>Tổng Giám đốc</option>
+        <option>Phó Tổng Giám đốc</option>
+        <option>Giám đốc</option>
+        <option>Phó Giám đốc</option>
+    </select>
+</div>
 
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
