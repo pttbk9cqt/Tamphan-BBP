@@ -1,0 +1,94 @@
+﻿@@{
+ViewData["Title"] = "15-06";   //Tên Tab
+}
+<div>
+    <textarea id="TieuDe" name="TieuDe" rows="2" style="width:100%;">Tờ trình xin chủ trương</textarea>
+</div>
+<br />
+<div>
+    <label style="margin-right:12px">Số tờ trình:</label>
+    <input id="SoToTrinh" name="SoToTrinh" value="/TTr-SXKD" style="width:130px" />
+    <label style="margin-left:30px;">Ngày:</label>
+    <input id="NgayToTrinh" name="NgayToTrinh" value="@DateTime.Now.Day" style="width:30px" />
+    <label>Tháng:</label>
+    <input id="ThangToTrinh" name="ThangToTrinh" value="@DateTime.Now.Month" style="width:30px" />
+    <label>Năm:</label>
+    <input id="NamToTrinh" name="NamToTrinh" value="@DateTime.Now.Year" style="width:45px" />
+</div>
+<br />
+<div>
+    <label style="margin-right:45px;">Dự án:</label>
+    <input list="TenDuAn" id="DuAn" name="DuAn" onclick="this.select()" style="width:400px" />
+    <datalist id="TenDuAn">
+        <option value="Khu Công nghiệp và Dân cư Becamex - Bình Phước"></option>
+        <option value="Khu Công nghiệp Becamex - Bình Phước"></option>
+        <option value="Khu Tái định cư - Dân cư Ấp 1"></option>
+        <option value="Khu Dân cư Ấp 4"></option>
+        <option value="Khu Dân cư Ấp 4B"></option>
+    </datalist>
+</div>
+<br />
+<div>
+    <label style="margin-right:13px;">Công trình:</label>
+    <input list="TenCongTrinh" id="CongTrinh" name="CongTrinh" onclick="this.select()" style="width:500px;" />
+    <datalist id="TenCongTrinh">
+        <option value="Khu Công nghiệp và Dân cư Becamex - Bình Phước"></option>
+        <option value="Khu Công nghiệp Becamex - Bình Phước"></option>
+        <option value="Khu Công nghiệp - Khu B"></option>
+        <option value="Khu Công nghiệp phía Bắc khu A (phía Bắc suối Cái)"></option>
+        <option value="Khu Công nghiệp phía Nam khu A (phía Nam suối Cái)"></option>
+        <option value="Khu Tái định cư - Dân cư Ấp 1"></option>
+        <option value="Khu Dân cư Ấp 4"></option>
+        <option value="Khu Dân cư Ấp 4B"></option>
+    </datalist>
+</div>
+<br />
+<div>
+    <label style="margin-right:15px;">Hạng mục:</label>
+    <input id="HangMuc" name="HangMuc" onclick="this.select()" style="width:1200px;" />
+</div>
+<br />
+<div>
+    <label style="margin-right:25px;">Địa điểm:</label>
+    <input id="DiaDiem" name="DiaDiem" value="Phường Chơn Thành, Thành phố Đồng Nai" style="width:400px" />
+</div>
+<br />
+<div>
+    <p><b>Đơn vị thực hiện (Bên B):</b></p>
+    <label style="margin-right:56px">NCC:</label>
+    <input id="NhaCungCap" name="NhaCungCap" value="" style="width:900px" /><br />
+    <label style="margin-right:39px">Địa chỉ:</label>
+    <input id="Diachi" name="Diachi" value="" style="width:900px" /><br />
+    <label style="margin-right:64px;">Sđt:</label>
+    <input id="SoDienThoai" name="SoDienThoai" value="" style="width:400px" />
+    <label style="margin-left:50px;">Email:</label>
+    <input id="Email" name="Email" value="@@gmail.com" style="width:400px" /><br />
+    <label style="margin-right:60px;">STK:</label>
+    <input id="STK1" name="STK1" value="" style="width:900px" /><br />
+    <input id="STK2" name="STK2" value="" style="margin-left:94px; width:900px" ; /><br />
+    <label style="margin-right:55px;">MST:</label>
+    <input id="MST" name="MST" style="width:300px; font-weight:bold;" oninput="formatMST(this)" />
+    <script>
+
+            function formatMST(input) {let value = input.value.replace(/\s/g, ''); input.value = value.split('').join(' '); }
+    </script><br />
+    <label style="margin-right:28px;">Đại diện:</label>
+    <input id="DaiDien" name="DaiDien" value="Ông " style="width:330px" />
+    <label style="margin-left:10px">Chức vụ:</label>
+    <select>
+        <option>Tổng Giám đốc</option>
+        <option>Phó Tổng Giám đốc</option>
+        <option>Giám đốc</option>
+        <option>Phó Giám đốc</option>
+    </select>
+</div>
+<br />
+<div>
+    <label><b>Giá trị hợp đồng:</b></label><br />
+    <label>Giá trị hợp đồng:</label><br />
+    <input id="Giatri" />
+</div>
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
