@@ -5,56 +5,44 @@
 <div class="container-fluid py-3">
 
     <!-- Tiêu đề -->
-
     <div class="mb-4">
-        <textarea id="TieuDe" name="TieuDe" rows="3" class="bg-light form-control text-center"> Tờ trình xin chủ trương</textarea>
+        <textarea id="TieuDe" name="TieuDe"
+                  rows="3"
+                  class="form-control bg-light text-center">
+            Tờ trình xin chủ trương
+        </textarea>
     </div>
 
     <!-- Số tờ trình -->
+    <div class="row align-items-center mb-4 g-2">
 
-    <div class="row align-items-center g-2 mb-4">
-
-        <div class="col-auto">
-            <label class="form-label mb-0">Số:</label>
-        </div>
-
+        <label class="col-auto col-form-label">Số:</label>
         <div class="col-auto">
             <input id="SoToTrinh" name="SoToTrinh" value="/TTr-SXKD" class="form-control text-center" />
         </div>
 
-        <div class="col-auto ms-4">
-            <label class="form-label mb-0">Ngày:</label>
-        </div>
-        
+        <label class="col-auto col-form-label ms-3">Ngày:</label>
         <div class="col-1">
             <input id="NgayToTrinh" name="NgayToTrinh" value="@DateTime.Now.Day" class="form-control text-center" />
         </div>
 
-        <div class="col-auto">
-            <label class="form-label mb-0">Tháng:</label>
-        </div>
-
+        <label class="col-auto col-form-label">Tháng:</label>
         <div class="col-1">
             <input id="ThangToTrinh" name="ThangToTrinh" value="@DateTime.Now.Month" class="form-control text-center" />
         </div>
 
-        <div class="col-auto">
-            <label class="form-label mb-0">Năm:</label>
-        </div>
-
+        <label class="col-auto col-form-label">Năm:</label>
         <div class="col-1">
             <input id="NamToTrinh" name="NamToTrinh" value="@DateTime.Now.Year" class="form-control text-center" />
         </div>
-
     </div>
 
     <!-- Dự án -->
+        <div class="row mb-3">
 
-    <div class="row mb-3">
-
-        <div class="col-md-3 text-md-end">
-            <label class="form-label">Dự án:</label>
-        </div>
+        <label class="col-md-3 col-form-label text-md-end">
+            Dự án:
+        </label>
 
         <div class="col-md-6">
             <input list="TenDuAn" id="DuAn" name="DuAn" onclick="this.select()" class="form-control" />
@@ -71,12 +59,11 @@
     </div>
 
     <!-- Công trình -->
-
     <div class="row mb-3 text-md-end">
 
-        <div class="col-md-3">
-            <label class="form-label">Công trình:</label>
-        </div>
+        <label class="col-md-3 col-form-label text-md-end">
+            Công trình:
+        </label>
 
         <div class="col-md-8">
             <input list="TenCongTrinh" id="CongTrinh" name="CongTrinh" onclick="this.select()" class="form-control" />
@@ -96,12 +83,11 @@
     </div>
 
     <!-- Hạng mục -->
+    <div class="row mb-3 align-items-center">
 
-    <div class="row mb-3 text-md-end">
-
-        <div class="col-md-3">
-            <label class="form-label">Hạng mục:</label>
-        </div>
+        <label class="col-md-3 col-form-label text-md-end">
+            Hạng mục:
+        </label>
 
         <div class="col-md-8">
             <textarea id="HangMuc" name="HangMuc" rows="2" onclick="this.select()" class="form-control"></textarea>
@@ -110,11 +96,11 @@
 
     <!-- Địa điểm -->
 
-    <div class="row mb-4 text-md-end">
+    <div class="row mb-4 align-items-center">
 
-        <div class="col-md-3">
-            <label class="form-label">Địa điểm:</label>
-        </div>
+        <label class="col-md-3 col-form-label text-md-end">
+            Địa điểm:
+        </label>
 
         <div class="col-md-6">
             <input id="DiaDiem" name="DiaDiem" value="Phường Chơn Thành, Thành phố Đồng Nai" class="form-control" />
@@ -123,22 +109,20 @@
     </div>
 
     <!-- Quyết định lựa chọn đơn vị thi công -->
-    <div class="fw-bold">
+    <!-- Căn cứ -->
+    <div class="fw-bold mb-2">
         I. Quyết định lựa chọn đơn vị thi công:<br />
         1. Căn cứ:
     </div>
-    <div class="col-mb-4">
-        <textarea id="CanCu" name="CanCu" rows="16" onclick="this.select()" class="form-control"></textarea>
-    </div>
-    <br />
-    <div class="fw-bold">
+    
+    <textarea id="CanCu" name="CanCu" rows="16" onclick="this.select()" class="form-control mb-4"></textarea>
+    <!-- nguyên nhân trình ký -->
+    <div class="fw-bold mb-2">
         2. Nguyên nhân trình ký:
     </div>
-    <div class="col-mb-4">
-        <textarea id="NguyenNhanTrinhKy" name="NguyenNhanTrinhKy" rows="26" onclick="this.select()" class="form-control"></textarea>
-    </div>
 
-    <br />
+    <textarea id="NguyenNhanTrinhKy" name="NguyenNhanTrinhKy" rows="26" onclick="this.select()" class="form-control col-mb-4"></textarea>
+
     <!-- Đơn vị thực hiện -->
 
     <div class="card mb-4">
@@ -149,108 +133,110 @@
 
         <div class="card-body">
 
-            <div class="row mb-3">
-                <div class="col-md-1">
-                    <label class="form-label">NCC</label>
-                </div>
-
+            <div class="row mb-3 align-items-center">
+                <label class="col-md-1 col-form-label">NCC</label>
                 <div class="col-md-11">
                     <input id="NhaCungCap" name="NhaCungCap" class="form-control" />
                 </div>
             </div>
 
-            <div class="row mb-3">
-                <div class="col-md-1">
-                    <label class="form-label">Địa chỉ</label>
-                </div>
-
+            <div class="row mb-3 align-items-center">
+                <label class="col-md-1 col-form-label">Địa chỉ</label>
                 <div class="col-md-11">
                     <input id="Diachi" name="Diachi" class="form-control" />
                 </div>
             </div>
 
-            <div class="row mb-3">
-                <div class="col-md-1">
-                    <label class="form-label">SĐT</label>
-                </div>
+            <div class="row mb-3 align-items-center">
+                <label class="col-md-1 col-form-label">SĐT</label>
                 <div class="col-md-4">
                     <input id="SoDienThoai" name="SoDienThoai" class="form-control" />
                 </div>
 
-
-                <div class="col-md-2 text-md-end">
-                    <label class="form-label">Email</label>
-                </div>
+                <label class="col-md-2 col-form-label text-md-end">Email</label>
                 <div class="col-md-5">
                     <input id="Email" name="Email" value="@@gmail.com" class="form-control" />
                 </div>
+            </div>
 
             </div>
 
-            <div class="row mb-3">
-
-                <div class="col-md-1">
-                    <label class="form-label">STK</label>
-                </div>
-
+            <div class="row mb-3 align-items-center">
+                <label class="col-md-1 col-form-label">STK</label>
                 <div class="col-md-11">
                     <input id="STK1" name="STK1" class="form-control mb-2" />
                     <input id="STK2" name="STK2" class="form-control" />
                 </div>
-
             </div>
 
-            <div class="row mb-3">
-
-                <div class="col-md-1">
-                    <label class="form-label">MST</label>
-                </div>
-
+            <div class="row mb-3 align-items-center">
+                <label class="col-md-1 col-form-label">MST</label>
                 <div class="col-md-4">
-                    <input id="MST" name="MST" class="form-control fw-bold" oninput="formatMST(this)" />
+                    <input id="MST"
+                           name="MST"
+                           class="form-control fw-bold"
+                           oninput="formatMST(this)" />
                 </div>
-
             </div>
 
-            <div class="row">
 
-                <div class="col-md-1">
-                    <label class="form-label">Đại diện</label>
-                </div>
-                <div class="col-md-5">
-                    <input id="DaiDien" name="DaiDien" value="Ông " class="form-control" />
-                </div>
+        <div class="row align-items-center">
 
-                <div class="col-md-2">
-                    <label class="form-label">Chức vụ</label>
-                    <select class="form-select">
-                        <option>Tổng Giám đốc</option>
-                        <option>Phó Tổng Giám đốc</option>
-                        <option>Giám đốc</option>
-                        <option>Phó Giám đốc</option>
-                    </select>
-                </div>
+            <label class="col-md-2 col-form-label">Đại diện</label>
 
+            <div class="col-md-4">
+                <input id="DaiDien" name="DaiDien"
+                       value="Ông "
+                       class="form-control" />
+            </div>
+
+            <label class="col-md-2 col-form-label text-md-end">Chức vụ</label>
+
+            <div class="col-md-4">
+                <select class="form-select">
+                    <option>Tổng Giám đốc</option>
+                    <option>Phó Tổng Giám đốc</option>
+                    <option>Giám đốc</option>
+                    <option>Phó Giám đốc</option>
+                </select>
+            </div>
             </div>
 
         </div>
 
     </div>
+
+
+    <!-- Nội dung hợp đồng -->
+    <div class="fw-bold mb-2">
+        II. Nội dung trình ký:<br />
+        1. Nội dung
+    </div>
+
+    <textarea id="NoiDung" name="NoiDung" rows="32" oneclick="this.select()" class="form-control mb-4"></textarea>
 
     <!-- Giá trị hợp đồng -->
-
     <div class="card">
 
-        <div class="card-header fw-bold">Giá trị hợp đồng</div>
-
-        <div class="card-body">
-            <label class="form-label">Giá trị hợp đồng</label>
-            <input id="Giatri" class="form-control" />
-        </div>
-
+    <div class="card-header fw-bold">
+        2.Giá trị hợp đồng
     </div>
 
+    <div class="card-body">
+        <div class="row align-items-center">
+            <label class="col-md-2 col-form-label">
+                Giá trị hợp đồng:
+            </label>
+
+            <div class="col-md-4">
+                <input id="Giatri" name="Giatri" class="form-control" />
+            </div>
+        </div>
+    </div>
+
+
 </div>
+
 
 <script>
     function formatMST(input) {
