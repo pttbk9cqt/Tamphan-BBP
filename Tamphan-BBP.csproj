@@ -7,4 +7,8 @@
     <RootNamespace>Tamphan_BBP</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="Templates\15-06\" />
+  </ItemGroup>
+
 </Project>
