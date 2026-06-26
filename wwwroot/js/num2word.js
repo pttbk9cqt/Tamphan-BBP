@@ -1,4 +1,4 @@
-﻿function formatTienVietNam(number) {
+﻿function formatNumstyleVietNam(number) {
     return number.toString().replace(/\D/g, "")
         .replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 }
@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
         let raw = this.value.replace(/\D/g, "");
 
         // format hiển thị: 1.500.000
-        this.value = formatTienVietNam(raw);
+        this.value = formatNumstyleVietNam(raw);
 
         // đổi sang chữ
         output.value = vietHoaChuDau(num2word(raw));

@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Templates\15-06\" />
+    <Folder Include="Output\BTS\" />
   </ItemGroup>
 
 </Project>
