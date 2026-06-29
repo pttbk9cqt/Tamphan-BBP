@@ -8,7 +8,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Output\BTS\" />
+    <Compile Remove="Output\**" />
+    <Content Remove="Output\**" />
+    <EmbeddedResource Remove="Output\**" />
+    <None Remove="Output\**" />
   </ItemGroup>
 
   <ItemGroup>
