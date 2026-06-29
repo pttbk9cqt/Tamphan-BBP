@@ -292,33 +292,6 @@
         </button>
     </div>
 
-    <div id="buildStatus" class="text-center text-muted"></div>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-
-        document.getElementById("btnBuild").addEventListener("click", () => {
-
-        BuildDocument.build("/BTS/Build", {
-
-        onBeforeSend: () => {
-        document.getElementById("buildStatus").innerText = "Đang xử lý...";
-        },
-
-        onSuccess: () => {
-        document.getElementById("buildStatus").innerText = "Build xong!";
-        },
-
-        onError: (err) => {
-        document.getElementById("buildStatus").innerText = "Lỗi: " + err;
-        }
-
-        });
-
-        });
-
-        });
-    </script>
 
 </div> @*kết thúc container*@
 

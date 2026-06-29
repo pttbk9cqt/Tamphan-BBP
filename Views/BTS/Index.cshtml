@@ -1,0 +1,298 @@
+﻿@{
+    ViewData["Title"] = "BTS";
+}
+
+<script src="~/js/num2word.js"></script>
+<script src="~/js/text-format.js"></script>
+<script src="~/js/toado-importer.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+
+<form asp-controller="BTS"
+      asp-action="Build"
+      method="post">
+
+    <div class="container-fluid py-3">
+
+        <!-- Tiêu đề -->
+        <div class="mb-4">
+            <textarea id="TieuDe" name="TieuDe" rows="3" class="form-control bg-light text-center">Tờ trình xin chủ trương</textarea>
+        </div>
+
+        <!-- Số tờ trình -->
+        <div class="row g-2 align-items-center mb-4">
+
+            <div class="col-auto">
+                <label class="col-form-label">Số:</label>
+            </div>
+            <div class="col-auto">
+                <input id="SoToTrinh" name="SoToTrinh" class="form-control text-center" value="/TTr-SXKD" />
+            </div>
+
+            <div class="col-auto ms-3">
+                <label class="col-form-label">Ngày:</label>
+            </div>
+            <div class="col-1">
+                <input id="NgayToTrinh" name="NgayToTrinh" class="form-control text-center" value="@DateTime.Now.Day" />
+            </div>
+
+            <div class="col-auto">
+                <label class="col-form-label">Tháng:</label>
+            </div>
+            <div class="col-1">
+                <input id="ThangToTrinh" name="ThangToTrinh" class="form-control text-center" value="@DateTime.Now.Month" />
+            </div>
+
+            <div class="col-auto">
+                <label class="col-form-label">Năm:</label>
+            </div>
+            <div class="col-1">
+                <input id="NamToTrinh" name="NamToTrinh" class="form-control text-center" value="@DateTime.Now.Year" />
+            </div>
+        </div>
+
+        <!-- Dự án -->
+        <div class="row mb-3">
+
+            <label class="col-md-3 col-form-label text-md-end">
+                Dự án:
+            </label>
+
+            <div class="col-md-6">
+                <input list="TenDuAn" id="DuAn" name="DuAn" class="form-control" onclick="this.select()" />
+            </div>
+
+            <datalist id="TenDuAn">
+                @foreach (string item in ViewBag.DuAns)
+                {
+                    <option value="@item"></option>
+                }
+            </datalist>
+
+        </div>
+
+        <!-- Công trình -->
+        <div class="row mb-3 text-md-end">
+
+            <label class="col-md-3 col-form-label text-md-end">
+                Công trình:
+            </label>
+
+            <div class="col-md-8">
+                <input list="TenCongTrinh" id="CongTrinh" name="CongTrinh" class="form-control" onclick="this.select()" />
+            </div>
+
+            <datalist id="TenCongTrinh">
+                @foreach (string item in ViewBag.CongTrinhs)
+                {
+                    <option value="@item"></option>
+                }
+            </datalist>
+
+        </div>
+
+        <!-- Hạng mục -->
+        <div class="row mb-3 align-items-center">
+
+            <label class="col-md-3 col-form-label text-md-end">
+                Hạng mục:
+            </label>
+
+            <div class="col-md-8">
+                <textarea id="HangMuc" name="HangMuc" rows="2" class="form-control" onclick="this.select()">  </textarea>
+            </div>
+        </div>
+
+        <!-- Địa điểm -->
+
+        <div class="row mb-4 align-items-center">
+
+            <label class="col-md-3 col-form-label text-md-end">
+                Địa điểm:
+            </label>
+
+            <div class="col-md-6">
+                <input id="DiaDiem" name="DiaDiem" class="form-control" value="Phường Chơn Thành, Thành phố Đồng Nai" />
+            </div>
+
+        </div>
+
+        <!-- Đơn vị thực hiện -->
+        <div class="card mt-4 mb-4">
+
+            <div class="card-header fw-bold">
+                3. Đơn vị thực hiện (Bên B)
+            </div>
+
+            <div class="card-body">
+
+                <div class="row mb-3 align-items-center">
+                    <label class="col-md-1 col-form-label">NCC</label>
+                    <div class="col-md-11">
+                        <input id="NhaCungCap" name="NhaCungCap" class="form-control" value="Công ty Cổ phần ETELCOM" />
+                    </div>
+                </div>
+
+                <div class="row mb-3 align-items-center">
+                    <label class="col-md-1 col-form-label">Địa chỉ</label>
+                    <div class="col-md-11">
+                        <input id="Diachi" name="Diachi" class="form-control" value="Số 10, đường D, KDC Chánh Nghĩa, phường Thủ Dầu Một, thành phố Hồ Chí Minh" />
+                    </div>
+                </div>
+
+                <div class="row mb-3 align-items-center">
+                    <label class="col-md-1 col-form-label">SĐT</label>
+                    <div class="col-md-4">
+                        <input id="SoDienThoai" name="SoDienThoai" class="form-control" value="0908.516.789" />
+                    </div>
+
+                    <label class="col-md-2 col-form-label text-md-end">Email</label>
+                    <div class="col-md-5">
+                        <input id="Email" name="Email" class="form-control" value="etelcom.jsc@gmail.com" />
+                    </div>
+                </div>
+
+                <div class="row mb-3 align-items-center">
+                    <label class="col-md-1 col-form-label">STK</label>
+                    <div class="col-md-11">
+                        <input id="STK" name="STK" class="form-control mb-2" value="8600.376.789 tại ngân hàng BIDV Chi nhánh Nam Bình Dương" />
+                    </div>
+                </div>
+
+                <div class="row mb-3 align-items-center">
+                    <label class="col-md-1 col-form-label">MST</label>
+                    <div class="col-md-4">
+                        <input id="MST" name="MST" class="form-control" oninput="addspace(this)" value="3 7 0 3 1 9 8 6 9 4" />
+                    </div>
+                </div>
+
+
+                <div class="row align-items-center">
+
+                    <label class="col-md-1 col-form-label">Đại diện</label>
+
+                    <div class="col-md-4">
+                        <input id="DaiDien" name="DaiDien" class="form-control" value="Ông Nguyễn Doãn Cường" />
+                    </div>
+
+                    <label class="col-md-2 col-form-label text-md-end">Chức vụ</label>
+
+                    <div class="col-md-4">
+                        <select id="ChucVu" name="ChucVu" class="form-select" value="Tổng Giám đốc">
+                            <option>Tổng Giám đốc</option>
+                            <option>Phó Tổng Giám đốc</option>
+                            <option>Giám đốc</option>
+                            <option>Phó Giám đốc</option>
+                        </select>
+                    </div>
+                </div>
+
+            </div> @*kết thúc cardbody*@
+        </div>  @*kết thúc card Đơn vị thực hiện*@
+
+        <!-- Tọa độ -->
+        <div class="card mt-4 mb-4">
+            <div class="card-header fw-bold">
+                Tọa độ BTS
+            </div>
+
+            <div class="card-body">
+
+                @* 8 tọa độ *@
+                <div class="row align-items-center">
+
+                    <div class="col-md-6 mt-2 mb-2">
+                        <input id="L11" name="L11" class="form-control" />
+                    </div>
+
+                    <div class="col-md-6 mt-2 mb-2">
+                        <input id="L12" name="L12" class="form-control" />
+                    </div>
+
+                    <div class="col-md-6 mt-2 mb-2">
+                        <input id="L21" name="L21" class="form-control" />
+                    </div>
+
+                    <div class="col-md-6 mt-2 mb-2">
+                        <input id="L22" name="L22" class="form-control" />
+                    </div>
+
+                    <div class="col-md-6 mt-2 mb-2">
+                        <input id="L31" name="L31" class="form-control" />
+                    </div>
+
+                    <div class="col-md-6 mt-2 mb-2">
+                        <input id="L32" name="L32" class="form-control" />
+                    </div>
+
+                    <div class="col-md-6 mt-2 mb-2">
+                        <input id="L41" name="L41" class="form-control" />
+                    </div>
+
+                    <div class="col-md-6 mt-2 mb-2">
+                        <input id="L42" name="L42" class="form-control" />
+                    </div>
+                </div> @*kết thúc 8 tọa độ*@
+
+                <!-- chỗ import file excel -->
+                <div id="dropZone" class="border rounded p-4 text-center mb-3" style="cursor:pointer;">
+                    📄 Kéo file Excel vào đây hoặc click để chọn
+                    <input type="file" id="fileExcel" hidden accept=".xlsx,.xls" />
+                    <div id="fileName" class="mt-2 text-muted"></div>
+                </div>
+
+
+            </div> @*kết thúc card body*@
+
+        </div> @*kết thúc card Tọa độ*@      
+        <!-- Nút build -->
+        <div class="text-center mt-4 mb-5">
+            <button type="submit" @*button type="button" ban đầu là vậy, nhưng sau khi thêm form bọc ở trước container-fluid py-3 thì đổi submit*@
+                    id="btnBuild"
+                    class="btn btn-success btn-lg">
+
+                Build Word
+
+            </button>
+        </div>
+
+
+    </div> @*kết thúc container*@
+</form>
+<!-- Hàm chuyển kiểu nhập vào từ ký tự thuần thành style số dạng việt nam gom 3. -->
+<script>
+    function formatNumstyleVietNam(value) {
+
+    if (value === null || value === undefined) return "";
+
+    let str = String(value);
+
+    // chỉ giữ số
+    str = str.replace(/\D/g, "");
+
+    if (str === "") return "";
+
+    return str.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+    }
+
+    const ids = ["L11", "L12", "L21", "L22", "L31", "L32", "L41", "L42"];
+
+    document.addEventListener("DOMContentLoaded", function () {
+
+    ids.forEach(function (id) {
+
+    const el = document.getElementById(id);
+
+    if (!el) return;
+
+    el.addEventListener("input", function () {
+    this.value = formatNumstyleVietNam(this.value);
+    });
+
+    });
+
+    });
+</script>
+<!-- Hàm xử lý tọa độ nhập vào, ép kiểu và bắn nó ra gridview -->
+<script>
+    ToaDoImporter.init();
+</script>
