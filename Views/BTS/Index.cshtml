@@ -13,11 +13,6 @@
 
     <div class="container-fluid py-3">
 
-        <!-- Tiêu đề -->
-        <div class="mb-4">
-            <textarea id="TieuDe" name="TieuDe" rows="3" class="form-control bg-light text-center">Tờ trình xin chủ trương</textarea>
-        </div>
-
         <!-- Số tờ trình -->
         <div class="row g-2 align-items-center mb-4">
 
@@ -97,8 +92,8 @@
                 Hạng mục:
             </label>
 
-            <div class="col-md-8">
-                <textarea id="HangMuc" name="HangMuc" rows="2" class="form-control" onclick="this.select()">  </textarea>
+            <div class="col-md-9">
+                <textarea id="HangMuc" name="HangMuc" rows="1" class="form-control" oninput="capNhatMaTram()">Vị trí đặt trạm phát sóng di động BPC (Trạm BTS xx đường xx)</textarea>
             </div>
         </div>
 
@@ -120,7 +115,7 @@
         <div class="card mt-4 mb-4">
 
             <div class="card-header fw-bold">
-                3. Đơn vị thực hiện (Bên B)
+                Đơn vị thực hiện (Bên B)
             </div>
 
             <div class="card-body">
@@ -189,6 +184,40 @@
             </div> @*kết thúc cardbody*@
         </div>  @*kết thúc card Đơn vị thực hiện*@
 
+        <!-- Cắt lấy và format ra Mã trạm BTS từ hạng mục -->
+        <script>
+            function capNhatMaTram() {
+
+            let text = document.getElementById("HangMuc").value.trim();
+
+            // Bỏ phần "Vị trí đặt "
+            text = text.replace(/^Vị trí đặt\s*/i, "");
+
+            // Viết hoa chữ cái đầu tiên
+            if (text.length > 0) {
+            text = text.charAt(0).toUpperCase() + text.slice(1);
+            }
+
+            document.getElementById("MaTram").value = text;
+            }
+        </script>
+
+        <!-- Mã trạm BTS -->
+        <div class="card mt-4 mb-4 ">
+            <div class="card-header fw-bold">
+                Mã trạm
+            </div>
+
+            <div class="card-body">
+                <div class="row justify-content-center">
+                    <div class="col-md-9 mt-2 mb-2">
+                        <input id="MaTram" name="MaTram" class="form-control" />
+                    </div>
+                </div>
+            </div> @*kết thúc card body*@
+        </div> @*kết thúc card mã trạm*@
+
+
         <!-- Tọa độ -->
         <div class="card mt-4 mb-4">
             <div class="card-header fw-bold">
@@ -240,10 +269,10 @@
                     <div id="fileName" class="mt-2 text-muted"></div>
                 </div>
 
-
             </div> @*kết thúc card body*@
+        </div> @*kết thúc card Tọa độ*@     
+        
 
-        </div> @*kết thúc card Tọa độ*@      
         <!-- Nút build -->
         <div class="text-center mt-4 mb-5">
             <button type="submit" @*button type="button" ban đầu là vậy, nhưng sau khi thêm form bọc ở trước container-fluid py-3 thì đổi submit*@
@@ -255,9 +284,9 @@
             </button>
         </div>
 
-
     </div> @*kết thúc container*@
 </form>
+
 <!-- Hàm chuyển kiểu nhập vào từ ký tự thuần thành style số dạng việt nam gom 3. -->
 <script>
     function formatNumstyleVietNam(value) {
@@ -292,6 +321,7 @@
 
     });
 </script>
+
 <!-- Hàm xử lý tọa độ nhập vào, ép kiểu và bắn nó ra gridview -->
 <script>
     ToaDoImporter.init();

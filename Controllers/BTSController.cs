@@ -39,6 +39,7 @@ namespace Tamphan_BBP.Controllers
                             { "MST", model.MST },
                             { "DAIDIEN", model.DaiDien },
                             { "CHUCVU", model.ChucVu },
+                            { "MATRAM", model.MaTram },
                             { "L11", model.L11 },
                             { "L12", model.L12 },
                             { "L21", model.L21 },
@@ -62,11 +63,11 @@ namespace Tamphan_BBP.Controllers
 
                 BuildFile(@"Templates\BTS\BM-15-06 TỜ TRÌNH XIN CHỦ TRƯƠNG BTS - Templates.docx", "BM-15-06 TỜ TRÌNH XIN CHỦ TRƯƠNG.docx");
 
-                //BuildFile(@"Templates\BTS\BM-15-07 TỜ TRÌNH KÝ BIÊN BẢN THỎA THUẬN BTS - Templates.docx", "BM-15-07 TỜ TRÌNH KÝ BIÊN BẢN THỎA THUẬN.docx");
+                BuildFile(@"Templates\BTS\BM-15-07 TỜ TRÌNH KÝ BIÊN BẢN THỎA THUẬN BTS - Templates.docx", "BM-15-07 TỜ TRÌNH KÝ BIÊN BẢN THỎA THUẬN.docx");
 
-                //BuildFile(@"Templates\BTS\BIÊN BẢN THỎA THUẬN BTS - Templates.docx", "BIÊN BẢN THỎA THUẬN.docx");
+                BuildFile(@"Templates\BTS\BIÊN BẢN THỎA THUẬN BTS - Templates.docx", "BIÊN BẢN THỎA THUẬN.docx");
 
-                //BuildFile(@"Templates\BTS\BM-62-12 BIÊN BẢN BÀN GIAO MẶT BẰNG BTS - Templates.docx", "BM-62-12 BIÊN BẢN BÀN GIAO MẶT BẰNG BTS.docx");
+                BuildFile(@"Templates\BTS\BM-62-12 BIÊN BẢN BÀN GIAO MẶT BẰNG BTS - Templates.docx", "BM-62-12 BIÊN BẢN BÀN GIAO MẶT BẰNG BTS.docx");
 
                 return Content("Đã tạo xong.");
                 //return Json(model);

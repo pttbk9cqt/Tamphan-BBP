@@ -22,6 +22,8 @@
         public string DaiDien { get; set; } = "";
         public string ChucVu { get; set; } = "";
 
+        public string MaTram { get; set; } = "";
+
         public string L11 { get; set; } = "";
         public string L12 { get; set; } = "";
         public string L21 { get; set; } = "";
