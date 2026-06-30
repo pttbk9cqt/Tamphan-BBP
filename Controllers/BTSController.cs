@@ -18,8 +18,6 @@ namespace Tamphan_BBP.Controllers
         [HttpPost]
         public IActionResult Build(BTSModel model)
         {
-            try
-            {
                 var data = new Dictionary<string, string>
                         {
                             { "TIEUDE", model.TieuDe },
@@ -31,14 +29,14 @@ namespace Tamphan_BBP.Controllers
                             { "CONGTRINH", model.CongTrinh },
                             { "HANGMUC", model.HangMuc },
                             { "DIADIEM", model.DiaDiem },
-                            { "NHACUNGCAP", model.NhaCungCap },
-                            { "DIACHI", model.Diachi },
-                            { "SDT", model.SoDienThoai },
-                            { "EMAIL", model.Email },
-                            { "STK", model.STK },
-                            { "MST", model.MST },
-                            { "DAIDIEN", model.DaiDien },
-                            { "CHUCVU", model.ChucVu },
+                            { "NHACUNGCAP", model.Supplierinfo.NhaCungCap },
+                            { "DIACHI", model.Supplierinfo.Diachi },
+                            { "SDT", model.Supplierinfo.SoDienThoai },
+                            { "EMAIL", model.Supplierinfo.Email },
+                            { "STK", model.Supplierinfo.STK },
+                            { "MST", model.Supplierinfo.MST },
+                            { "DAIDIEN", model.Supplierinfo.DaiDien },
+                            { "CHUCVU", model.Supplierinfo.ChucVu },
                             { "MATRAM", model.MaTram },
                             { "L11", model.L11 },
                             { "L12", model.L12 },
@@ -71,11 +69,6 @@ namespace Tamphan_BBP.Controllers
 
                 return Content("Đã tạo xong.");
                 //return Json(model);
-            }
-            catch (Exception ex)
-            {
-                return Content(ex.ToString());
-            }
         }
     }
 }

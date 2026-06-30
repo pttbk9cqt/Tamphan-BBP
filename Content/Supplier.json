@@ -1,0 +1,29 @@
+﻿[
+  {
+    "TenNCC": "Công ty Cổ phần Điện Lực Becamex Bình Phước (BBPJSC)",
+    "DiaChi": "Tổ 8, Khu phố 3, Phường Chơn Thành, Thành phố Đồng Nai",
+    "SDT": "0271.3.603.868 – 0271.3.603.869",
+    "Email": "cskh.dienluc@becamexbinhphuoc.com.vn",
+    "STK": "6550.648.328 tại Ngân hàng TMCP Đầu tư & Phát triển Việt Nam",
+    "MST": "3801239324",
+    "DaiDien": "Ông Đặng Văn Dũng",
+    "ChucVu": "Tổng Giám đốc"
+  },
+  {
+    "TenNCC": "Công ty ABC",
+    "DiaChi": "123 Lê Lợi, TP.HCM",
+    "SDT": "0909 111 222",
+    "Email": "contact@abc.com",
+    "STK": "123456789",
+    "MST": "0312345678",
+    "DaiDien": "Nguyễn Văn A",
+    "ChucVu": "Giám đốc"
+  }
+]
+// đây là json dạng Array, bắt đầu bằng [], gồm nhiều json dạng Object {} dùng cho mục đích danh sách, ComboBox / ListBox / DataGridView
+// Cách đọc:var nccList = JsonConvert.DeserializeObject<List<NCC>>(File.ReadAllText("Data\\Supplier.json"));
+//hoặc cách an toàn hơn dùng:
+// var nccList = JsonConvert.DeserializeObject<List<NCC>>(File.ReadAllText(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data", "Supplier.json"))
+//Cách dùng
+//ComboBox_NCC.DataSource = nccList;
+//ComboBox_NCC.DisplayMember = "TenNCC";

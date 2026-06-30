@@ -1,7 +1,10 @@
+using Tamphan_BBP.Services;    //Tâm thêm để bắn dữ liệu trong json ra view, thì khi thêm vào thì phải thêm using Tamphan_BBP.Services; để gọi đến class LoadContentService
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<LoadContentService>();  //Tâm thêm để bắn dữ liệu trong json ra view
 
 var app = builder.Build();
 
@@ -20,10 +23,6 @@ app.UseAuthorization();
 
 app.MapStaticAssets();
 
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}")
-    .WithStaticAssets();
-
+app.MapControllerRoute(name: "default", pattern: "{controller=BTS}/{action=Index}/{id?}").WithStaticAssets();
 
 app.Run();

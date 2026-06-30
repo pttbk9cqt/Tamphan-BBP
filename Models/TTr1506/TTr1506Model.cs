@@ -1,6 +1,6 @@
-﻿namespace Tamphan_BBP.Models.BTS
+﻿namespace Tamphan_BBP.Models.TTr1506
 {
-    public class BTSModel
+    public class TTr1506Model
     {
         public string TieuDe { get; set; } = "";
         public string SoToTrinh { get; set; } = "";
@@ -16,15 +16,8 @@
         // composition Tâm thêm để gọi đến class SupplierInfo.cs
         public SupplierInfo Supplierinfo { get; set; } = new();
 
-        public string MaTram { get; set; } = "";
+        public string CanCu { get; set; } = "";
+        public string NguyenNhanTrinhKy { get; set; } = "";
 
-        public string L11 { get; set; } = "";
-        public string L12 { get; set; } = "";
-        public string L21 { get; set; } = "";
-        public string L22 { get; set; } = "";
-        public string L31 { get; set; } = "";
-        public string L32 { get; set; } = "";
-        public string L41 { get; set; } = "";
-        public string L42 { get; set; } = "";
     }
 }
