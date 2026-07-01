@@ -59,8 +59,8 @@ function num2word(so) {
 
 // GẮN EVENT NGAY TẠI ĐÂY
 document.addEventListener("DOMContentLoaded", function () {
-    let input = document.getElementById("Giatri");
-    let output = document.getElementById("GiatriChu");
+    let input = document.getElementById("GiaTriBaoGia");
+    let output = document.getElementById("GiaTriBangChu");
 
     input.addEventListener("input", function () {
         let raw = this.value.replace(/\D/g, "");

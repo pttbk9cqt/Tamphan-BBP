@@ -122,14 +122,38 @@
             1. Căn cứ:
         </div>
 
-        <textarea id="CanCu" name="CanCu" rows="5" class="form-control mb-4" onclick="this.select()">   </textarea>
+        <textarea id="CanCu" name="CanCu" rows="5" class="form-control mb-4" >   </textarea>
 
         <!-- nguyên nhân trình ký -->
         <div class="fw-bold mt-4 mb-2">
             2. Nguyên nhân trình ký:
         </div>
 
-        <textarea id="NguyenNhanTrinhKy" name="NguyenNhanTrinhKy" rows="5" class="form-control mb-4" onclick="this.select()"></textarea>
+        <textarea id="NguyenNhanTrinhKy" name="NguyenNhanTrinhKy" rows="12" class="form-control mb-4" ></textarea>
+
+        <div class="table-responsive mb-4">
+            <table class="table table-bordered table-hover align-middle">
+                <thead class="table-light">
+                    <tr class="text-center">
+                        <th style="width:50px">STT</th>
+                        <th>Hạng mục công việc</th>
+                        <th style="width:150px">Giá trị dự trù</th>
+                        <th style="width:150px">Chào giá của Đơn vị thi công</th>
+                        <th style="width:200px">So sánh chào giá và dự trù</th>
+                    </tr>
+                </thead>
+                <tbody id="tblCompareWithDutru">
+                    <tr>
+                        <td class="text-center">1</td>
+                        <td class="text-center">Khối lượng công việc theo dự trù được duyệt</td>
+                        <td class="text-center"><input id="GiaTriDuTru" name="GiaTriDuTru" class="form-control text-end" /></td>
+                        <td class="text-center"><input id="GiaTriBaoGia" name="GiaTriBaoGia" class="form-control text-end" /></td>
+                        <td class="text-center"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
 
         <!-- Đơn vị thực hiện -->
         <div class="card mt-4 mb-4">
@@ -228,8 +252,8 @@
                         Giá trị hợp đồng:
                     </label>
 
-                    <div class="col-md-2">
-                        <input id="Giatri" name="Giatri" class="form-control text-end" />
+                    <div class="col-md-3">
+                        <input id="GiaTriHopDong" name="GiaTriHopDong" class="form-control text-center" />
                     </div>
 
                     <div class="col-md-4">
@@ -247,7 +271,7 @@
                     </label>
 
                     <div class="col-md-9">
-                        <input id="GiatriChu" class="form-control" readonly />
+                        <input id="GiaTriBangChu" class="form-control" readonly />
                     </div>
                 </div>
             </div>
@@ -320,4 +344,12 @@
     }
     }
 </script>
+@* đoạn script này để đồng bộ giá trị ở 2 ô bảng giá trị chào giá và giá trị hợp đồng ở dưới *@
+<script>
+    const giaTriBaoGia = document.getElementById("GiaTriBaoGia");
+    const giaTriHopDong = document.getElementById("GiaTriHopDong");
 
+    giaTriBaoGia.addEventListener("input", () => {giaTriHopDong.value = formatNumstyleVietNam(giaTriBaoGia.value);});
+
+    giaTriHopDong.addEventListener("input", () => {giaTriBaoGia.value = giaTriHopDong.value;});
+</script>
