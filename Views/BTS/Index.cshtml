@@ -1,4 +1,7 @@
-﻿@{
+﻿@using Tamphan_BBP.Models.BTS
+@model BTSModel
+
+@{
     ViewData["Title"] = "BTS";
 }
 
@@ -123,40 +126,40 @@
                 <div class="row mb-3 align-items-center">
                     <label class="col-md-1 col-form-label">NCC</label>
                     <div class="col-md-11">
-                        <input id="NhaCungCap" name="NhaCungCap" class="form-control" value="Công ty Cổ phần ETELCOM" />
+                        <input asp-for="Supplierinfo.NhaCungCap" class="form-control" />
                     </div>
                 </div>
 
                 <div class="row mb-3 align-items-center">
                     <label class="col-md-1 col-form-label">Địa chỉ</label>
                     <div class="col-md-11">
-                        <input id="Diachi" name="Diachi" class="form-control" value="Số 10, đường D, KDC Chánh Nghĩa, phường Thủ Dầu Một, thành phố Hồ Chí Minh" />
+                        <input asp-for="Supplierinfo.Diachi" class="form-control" />
                     </div>
                 </div>
 
                 <div class="row mb-3 align-items-center">
                     <label class="col-md-1 col-form-label">SĐT</label>
                     <div class="col-md-4">
-                        <input id="SoDienThoai" name="SoDienThoai" class="form-control" value="0908.516.789" />
+                        <input asp-for="Supplierinfo.SoDienThoai" class="form-control" />
                     </div>
 
                     <label class="col-md-2 col-form-label text-md-end">Email</label>
                     <div class="col-md-5">
-                        <input id="Email" name="Email" class="form-control" value="etelcom.jsc@gmail.com" />
+                        <input asp-for="Supplierinfo.Email" value="@@gmail.com" class="form-control" />
                     </div>
                 </div>
 
                 <div class="row mb-3 align-items-center">
                     <label class="col-md-1 col-form-label">STK</label>
                     <div class="col-md-11">
-                        <input id="STK" name="STK" class="form-control mb-2" value="8600.376.789 tại ngân hàng BIDV Chi nhánh Nam Bình Dương" />
+                        <input asp-for="Supplierinfo.STK" class="form-control mb-2" />
                     </div>
                 </div>
 
                 <div class="row mb-3 align-items-center">
                     <label class="col-md-1 col-form-label">MST</label>
                     <div class="col-md-4">
-                        <input id="MST" name="MST" class="form-control" oninput="addspace(this)" value="3 7 0 3 1 9 8 6 9 4" />
+                        <input asp-for="Supplierinfo.MST" class="form-control fw-bold" oninput="addspace(this)" />
                     </div>
                 </div>
 
@@ -166,13 +169,13 @@
                     <label class="col-md-1 col-form-label">Đại diện</label>
 
                     <div class="col-md-4">
-                        <input id="DaiDien" name="DaiDien" class="form-control" value="Ông Nguyễn Doãn Cường" />
+                        <input asp-for="Supplierinfo.DaiDien" class="form-control" value="Ông " />
                     </div>
 
                     <label class="col-md-2 col-form-label text-md-end">Chức vụ</label>
 
                     <div class="col-md-4">
-                        <select id="ChucVu" name="ChucVu" class="form-select" value="Tổng Giám đốc">
+                        <select asp-for="Supplierinfo.ChucVu" class="form-select">
                             <option>Tổng Giám đốc</option>
                             <option>Phó Tổng Giám đốc</option>
                             <option>Giám đốc</option>

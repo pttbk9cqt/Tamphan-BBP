@@ -1,6 +1,6 @@
 ﻿@using System.Text.Json
-@using Tamphan_BBP.Models.BTS
-@model BTSModel
+@using Tamphan_BBP.Models.TTr1506
+@model TTr1506Model
 
 @{
     ViewData["Title"] = "1506";
@@ -307,17 +307,6 @@
 
 @* đoạn script này dùng để load dữ liệu từ ViewBag.Contents vào các input, textarea có id trùng với key trong dictionary *@
 <script>
-    // const contents = @Html.Raw(JsonSerializer.Serialize<Dictionary<string, string>>((Dictionary<string, string>)ViewBag.Contents))
-
-    // for (const key in contents) 
-    // {
-    //     const element = document.getElementById(key);
-
-    //         if (element) 
-    //         {
-    //         element.value = contents[key];
-    //         }
-    // }
     const contents = @Html.Raw(JsonSerializer.Serialize(ViewBag.Contents));
 
     for (const key in contents) {

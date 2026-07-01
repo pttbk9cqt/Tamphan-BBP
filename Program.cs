@@ -23,6 +23,6 @@ app.UseAuthorization();
 
 app.MapStaticAssets();
 
-app.MapControllerRoute(name: "default", pattern: "{controller=BTS}/{action=Index}/{id?}").WithStaticAssets();
+app.MapControllerRoute(name: "default", pattern: "{controller=TTr1506}/{action=Index}/{id?}").WithStaticAssets();
 
 app.Run();
