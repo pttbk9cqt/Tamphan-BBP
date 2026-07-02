@@ -148,7 +148,7 @@
                         <td class="text-center">Khối lượng công việc theo dự trù được duyệt</td>
                         <td class="text-center"><input id="GiaTriDuTru" name="GiaTriDuTru" class="form-control text-end" /></td>
                         <td class="text-center"><input id="GiaTriBaoGia" name="GiaTriBaoGia" class="form-control text-end" /></td>
-                        <td class="text-center"></td>
+                        <td id="SoSanhGiaTri" class="text-center"></td>
                     </tr>
                 </tbody>
             </table>
@@ -345,11 +345,64 @@
     }
 </script>
 @* đoạn script này để đồng bộ giá trị ở 2 ô bảng giá trị chào giá và giá trị hợp đồng ở dưới *@
-<script>
+@* <script>
     const giaTriBaoGia = document.getElementById("GiaTriBaoGia");
     const giaTriHopDong = document.getElementById("GiaTriHopDong");
 
     giaTriBaoGia.addEventListener("input", () => {giaTriHopDong.value = formatNumstyleVietNam(giaTriBaoGia.value);});
 
     giaTriHopDong.addEventListener("input", () => {giaTriBaoGia.value = giaTriHopDong.value;});
+</script> *@
+
+@* đoạn script này để xử lý giá trị ở giá trị chào giá và giá trị hợp đồng, đồng thời xử lý ở dưới *@
+<script>
+
+    const txtDuTru = document.getElementById("GiaTriDuTru");
+    const txtBaoGia = document.getElementById("GiaTriBaoGia");
+    const txtHopDong = document.getElementById("GiaTriHopDong");
+    const tdSoSanh = document.getElementById("SoSanhGiaTri");
+
+    function getNumber(value) {return Number(value.replace(/\./g, "").replace(/,/g, "")) || 0;}
+
+    function formatNumberVN(number) {return Number(number).toLocaleString("vi-VN");}
+
+    function updateCompare() 
+    {
+
+        // Đồng bộ Giá trị hợp đồng
+        txtHopDong.value = txtBaoGia.value;
+
+        const duTru = getNumber(txtDuTru.value);
+        const baoGia = getNumber(txtBaoGia.value);
+
+        if (duTru === 0)
+        {
+            tdSoSanh.innerHTML = "";
+            return;
+        }
+
+        const chenhLech = baoGia - duTru;
+        const phanTram = Math.abs(chenhLech / duTru * 100).toFixed(2).replace(".", ",");
+
+        let html = "";
+
+        if (chenhLech > 0)
+        {
+            html = `<div class="fw-bold text-danger"> + ${phanTram}% </div><div>(tương ứng tăng<br>${formatNumberVN(chenhLech)} đồng)</div>`;
+        }
+        else if (chenhLech < 0)
+        {
+            html = `<div class="fw-bold text-success">- ${phanTram}%</div><div>(tương ứng giảm<br>${formatNumberVN(Math.abs(chenhLech))} đồng)</div>`;
+        }
+        else
+        {
+            html = `<div class="fw-bold">0%</div><div>(không chênh lệch)</div>`;
+        }
+
+        tdSoSanh.innerHTML = html;
+    }
+
+    txtDuTru.addEventListener("input", updateCompare);
+    txtBaoGia.addEventListener("input", updateCompare);
+
 </script>

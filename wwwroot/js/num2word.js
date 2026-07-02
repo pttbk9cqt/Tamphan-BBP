@@ -54,6 +54,7 @@ function num2word(so) {
         i++;
     }
 
+    result = result.replace(/,\s*$/, "");
     return result.trim() + " đồng.";
 }
 
